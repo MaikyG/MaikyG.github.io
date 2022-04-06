@@ -10,4 +10,5 @@ Curso de Programação Web.
 - JavaScript
 
 ### Back-End
-PHP e MySQL
+- PHP
+- MySQL
