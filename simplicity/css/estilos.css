@@ -1,0 +1,277 @@
+*, *::after, *::before{box-sizing: border-box;}
+
+html { font-size: 14px; }
+
+body { 
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* solução do problema so rodapé: etapa 1:colocar o body em modo flex e definir altura minima usada a viewport como referencia */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* etapa 2: fazer o conteudo (main) ocupando todo o espaço necessaria para empurrar o rodapé para baixo */
+main {flex: 1;}
+
+
+img { max-width: 100%;}
+
+/* Reset de elemento */
+
+body,h1,h2,h3,p,figure {
+    margin: 0%;
+    padding: 0%;
+}
+
+h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+a {text-decoration: none;}
+
+h1 a {
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 0.3rem 1rem;
+}
+
+header {
+    background-color:  rgb(255, 255, 255);
+    text-transform: uppercase;
+    position: sticky; /* deixa o cabeçalho fixo */
+    top: 0;
+
+}
+
+header .limitador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 10vh;
+}
+
+.limitador {
+    max-width: 1100px;
+    margin: auto;
+    width: 95%;
+}
+
+nav h2 {text-align: right;}
+
+nav h2 a {
+    color: black;
+    font-size: 1.2rem;
+    padding: 1rem;
+    display: inline-block;
+}
+
+nav h2 a:hover,nav h2 a:focus, .lista-links a:hover, .lista-links a:focus {
+    background-color: gainsboro;
+}
+
+.lista-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.lista-links a {
+    color: black;
+    font-weight: bold;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* esta regra somente ira funcionar quando as duas class estiverem juntas (lista-links e aberto)
+obs.: esta regra sera aplicada posteriormente com o auxilio de programação JavaScript. */
+.lista-links.aberto {
+    /* neste ponto, usamos o flex pra voltar a exibir o menu (quando aberto) */
+    display: flex;
+
+    /* e fazemos com que links apareçam verticalmente */
+    flex-direction: column;
+
+    /* usamos position e coordenadas para
+    garantir o posicionamento correto do
+    menu quando aberto. */
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+#destaque {
+    background-image: url(../imagens/fundo-destaque.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 90vh;
+
+    color: white;
+    text-align: center;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center; /*alinha tudo (h2 e p) ao centro  */
+}
+
+/* sem esta definição de tamanho o flex-wrap não funciona */
+#destaque h2, #destaque p {
+    width: 100%;
+}
+
+#destaque h2 {/* fonte responsiva usada função clamp(minimo, ideal, maximo) */
+    font-size: clamp(2rem, 10vw, 7rem);
+    animation: aparecer 3s ;
+}
+
+#destaque p {
+    font-size: clamp(1.5rem, 3vw, 4rem);
+    font-weight: bold;
+    animation: aparecer 3s 1s backwards;
+}
+
+/* etapa 1 : regra de animação */
+
+@keyframes aparecer {
+    from{ 
+        opacity: 0; 
+    }
+
+    to{ 
+        opacity: 1; 
+    }
+}
+
+#front-end,
+#historia,
+#localizacao {text-align: center;}
+
+article h2 {padding: 1rem;}
+
+article p {padding: 0.5rem 0;}
+
+#historia {
+    background-image: url(../imagens/fundo-madeira.jpg);
+    background-attachment: fixed;
+    box-sizing: cover;
+}
+
+#historia h2 {
+    color: white;
+    text-shadow: black 1px 1px 2px;
+}
+
+#historia iframe {
+    width: 100%;
+    max-width: 700px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+}
+/* produtos */
+
+.conteudo {
+    background-color: whitesmoke;
+    padding: 0.7rem;
+    border-radius: 5px;
+}
+
+.conteudo h2 {text-align: center;}
+
+table, th, td {
+    border: solid 2px black;
+    border-collapse: collapse; /* <--- remove os espaços entre as bordas */
+}
+
+table {
+    width: 80%;
+    margin: auto;
+    max-width: 700px;
+}
+
+caption {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+th {
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+    padding: rem;
+}
+
+td {
+    background-color: white;
+    font-size: 1.3rem;
+}
+td:first-child { font-weight: bold;}
+td:nth-child(2) {font-weight: bold; text-align: center;}
+td:last-child { font-weight: bold; }
+
+/* serviços */
+
+
+/* contato */
+
+ form {
+     width: 95%;
+     margin: auto;
+     padding: 1rem;
+     border-radius: 10px;
+ }
+
+ /* Pseudo-classe :not() permite criar exceçoes determinadas regras */
+ input:not([type="radio"]):not([type="checkbox"]), select, textarea {
+     border: none;
+     padding: 2.5%;
+     width: 100%;
+     height: 30px;
+ }
+
+ textarea {height: auto;}
+
+ button {
+     background-color: black;
+     color: white;
+     padding: 1rem;
+     border: none;
+     font-weight: bold;
+ }
+
+ form div { margin-top: 1rem;}
+
+/* mediaquery */
+
+@media screen and (min-width: 530px) {
+    nav h2 { display: none; }
+    .lista-links { display: flex; }
+    nav { width: 60%; }
+    .lista-links li { width: 100%; }
+} 
+
+@media screen and (min-width: 800px) {
+    html { font-size: 18px; }
+    header .limitador { height: 15vh; }
+    #destaque {height: 85vh;}
+    
+}
