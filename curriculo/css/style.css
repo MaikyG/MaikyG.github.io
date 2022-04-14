@@ -63,7 +63,7 @@ main {
     flex: 1;
 }
 
-#Anome {
+.Anome {
     padding: 10px 5px 10px 10px;
     border-radius: 0 5px 5px 0;
 
@@ -102,22 +102,43 @@ article #fundo h3 p {
     min-height: auto;
 }
 
-article #Aresumo div {
-    padding: 10px;
-    margin: 10px;
+#Aresumo {
+    display: flex;
+    justify-content: space-around;
+    max-height: auto;
+   
 }
 
 .resumo {
-    display:inline-flex ;
+    display:inline-block ;
     vertical-align: top;
-    max-width:24%;
-    
+    max-width:22%;
+    padding: 10px;
     background-color: rgba(0, 0, 0, 0.650);
     border-radius: 5px;
-    max-height: 100%;
-    flex-direction: column;
-    flex-wrap: wrap;
 }
+
+#figuras h3{
+    padding: 0 5px;
+}
+
+#figuras img {
+    max-width: 75px;
+    max-height: 75px;
+    padding: 5px;
+}
+
+.futura {
+    display: inline-block;
+}
+
+section {
+    background-color: rgba(0, 0, 0, 0.650);
+}
+
+
+
+
 
 
 ul li {
