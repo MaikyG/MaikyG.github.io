@@ -45,6 +45,7 @@ header {
     text-transform: uppercase;
     position: sticky; /* deixa o cabeçalho fixo */
     top: 0;
+    z-index: 1000; /* ajuste de profundidade  */
 
 }
 
@@ -80,6 +81,7 @@ nav h2 a:hover,nav h2 a:focus, .lista-links a:hover, .lista-links a:focus {
     padding: 0;
     margin: 0;
     display: none;
+    
 }
 
 .lista-links a {
@@ -89,11 +91,13 @@ nav h2 a:hover,nav h2 a:focus, .lista-links a:hover, .lista-links a:focus {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 
 /* esta regra somente ira funcionar quando as duas class estiverem juntas (lista-links e aberto)
 obs.: esta regra sera aplicada posteriormente com o auxilio de programação JavaScript. */
 .lista-links.aberto {
+
     /* neste ponto, usamos o flex pra voltar a exibir o menu (quando aberto) */
     display: flex;
 
