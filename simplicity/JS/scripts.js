@@ -9,6 +9,8 @@ const inputEstado = formulario.querySelector("#estado");
 const bStatus = formulario.querySelector("#status");
 const botaoLocalizar = formulario.querySelector("#localizar-cep");
 
+//-----------------------------------------------------------------------------------
+
 botaoLocalizar.addEventListener("click", function(event){
     event.preventDefault();
 
@@ -45,3 +47,39 @@ fetch(url)
 
 VMasker(inputCep).maskPattern("99999-999");
 VMasker(inputTelefone).maskPattern("(99)99999-9999");
+
+//------------------------------------------------------------------------------------
+
+/* JS INICIAL PARA MENSAGEM */
+const spanMaximo = formulario.querySelector("#maximo");
+const bCaracteres = formulario.querySelector("#caracteres");
+const textMensagem = formulario.querySelector("#mensagem");
+
+//------------------------------------------------------------------------------------
+
+// determinar a quantidade maxima de caracteres
+let quantidade = 100;
+
+//evento para detectar a digitação (entrada) no campo
+textMensagem.addEventListener("input", function(){
+
+     //captura o que for digitador
+     let conteudo = textMensagem.value;
+
+     let contagem = quantidade - conteudo.length;
+
+     bCaracteres.textContent = contagem
+
+    console.log(contagem);
+
+    if (contagem == 0) {
+        bCaracteres.style.color = "red"
+        textMensagem.style.boxShadow = "red 0 0 10px" 
+    } else {
+        bCaracteres.style.color = "black"
+        textMensagem.style.boxShadow = "black 0 0 10px"
+    }
+
+    
+   
+});
